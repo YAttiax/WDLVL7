@@ -13,7 +13,6 @@ request.onload = function() {
         request1.onload = function() {
             let data1 = JSON.parse(this.response);
             let pokeDiv = document.createElement("div")
-            pokeDiv.id = data1.name;
             pokeDiv.classList.add(data1.name,"pokeDiv",data1.types[0].type.name, data1.types[1] ? "s"+ data1.types[1].type.name : "s"+data1.types[0].type.name)
             let pokeImg = document.createElement("img")
             let pokeTitle = document.createElement("h4")
@@ -71,13 +70,13 @@ request.onload = function() {
         
         request1.send();
     });
-    document.querySelectorAll('.fa').forEach(favF => {
+    document.querySelectorAll('.fa-heart,.fa-heart-o').forEach(favF => {
         favF.addEventListener("click",function toggleFav(event){
             toggleH = event.target
             if (toggleH.classList[1].includes('fa-heart-o')) {
                 toggleH.classList.remove("fa-heart-o")
                 toggleH.classList.add("fa-heart")
-                pokeFavList.push(toggleH.parentNode.id)
+                pokeFavList.push(toggleH.parentNode.classList[0])
             } else{
                 toggleH.classList.remove("fa-heart")
                 toggleH.classList.add("fa-heart-o")

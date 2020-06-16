@@ -28,7 +28,7 @@ auth.onAuthStateChanged(user=>{
     })
 })
 setTimeout(() => {
-    document.querySelectorAll('.fa').forEach(fav => {
+    document.querySelectorAll('.fa-heart,.fa-heart-o').forEach(fav => {
         fav.addEventListener("click",function (){
             console.log('////////////SAVED////////////')
             db.collection('users').doc(currentUser.uid).set(
